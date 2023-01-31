@@ -28,14 +28,10 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        {/* <Route exact path="/">
-    
-        </Route> */}
         <Route exact path="/" component={BoardGamesIndex} />
-        <Route exact path="/boardgames" component={BoardGamesIndex} />
+        <Route exact path="/board-games" component={BoardGamesIndex} />
         <Route exact path="/users/new" component={RegistrationForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />
-        
+        <Route exact path="/user-sessions/new" component={SignInForm} />   
       </Switch>
     </Router>
   );

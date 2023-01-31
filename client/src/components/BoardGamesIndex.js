@@ -28,10 +28,10 @@ const BoardGamesIndex = props => {
     const boardGameTiles = boardGames.map(boardGame => {
         return(
             <BoardGameTile
-            key={boardGame.id}
-            id={boardGame.id}
-            name={boardGame.name}
-            rating={boardGame.rating}
+                key={boardGame.id}
+                id={boardGame.id}
+                name={boardGame.name}
+                rating={boardGame.rating}
             />
         )
     })
