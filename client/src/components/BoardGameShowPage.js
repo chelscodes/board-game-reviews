@@ -28,20 +28,8 @@ const BoardGameShowPage = (props) => {
     return(
         <div>
             <h2>{boardGame.name}</h2>
-            <ul className="game-info">
-                IMG placeholder
-                <li>Category {boardGame.category}</li>
-                <li>Players: {boardGame.minPlayers}-{boardGame.maxPlayers}</li>
-                <li>Est Play Time: {boardGame.estimatedPlayTime}</li>
-                <li>Rating: </li>
-            </ul>
-            <div className="description">
-            <p>Description:</p>
-            <p>{boardGame.description}</p>
-            </div>
         </div>
     )
-
 }
 
 export default BoardGameShowPage
