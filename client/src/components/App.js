@@ -8,6 +8,7 @@ import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import BoardGamesIndex from "./BoardGamesIndex";
+import BoardGameShowPage from "./BoardGameShowPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -30,6 +31,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={BoardGamesIndex} />
         <Route exact path="/board-games" component={BoardGamesIndex} />
+        <Route exact path="/board-games/:id" component={BoardGameShowPage} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />   
       </Switch>
