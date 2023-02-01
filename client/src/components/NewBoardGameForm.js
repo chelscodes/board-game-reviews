@@ -2,15 +2,15 @@ import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import translateServerErrors from "../services/translateServerErrors"
 
-import FormError from "./layout/FormError"
+import ErrorList from "./layout/ErrorList"
 
 
 const NewBoardGameForm = props => {
 	const [newBoardGame, setNewBoardGame] = useState({
 		name: "",
-		minPlayers: null,
-		maxPlayers: null,
-		estimatedPlayTime: null,
+		minPlayers: "",
+		maxPlayers: "",
+		estimatedPlayTime: "",
 		description: ""
 	})
 
@@ -42,6 +42,7 @@ const NewBoardGameForm = props => {
 			} else {
 				console.log("New board game added successfully!")
 				newBoardGameId = body.newBoardGame.id
+				setErrors({})
 				setShouldRedirect(true)
 			}
 		} catch(err) {
@@ -66,13 +67,13 @@ const NewBoardGameForm = props => {
 	}
 
 	return (
-		<div>
+		<>
 			<h1>Add a New Board Game</h1>
+			<ErrorList errors={errors} />
 			<form onSubmit={handleSubmit} className="callout">
 				<label>
 					Name:
 					<input type="text" id="name" name="name" onChange={handleInputChange} value={newBoardGame.name} />
-					<FormError error={errors.name} />
 				</label>
 				<label>
 					Minimum Players:
@@ -88,7 +89,6 @@ const NewBoardGameForm = props => {
 						<option value="8">8</option>
 						<option value="9plus">9+</option>
 					</select>
-					<FormError error={errors.minPlayers} />
 				</label>
 				<label>
 					Maximum Players:
@@ -104,24 +104,21 @@ const NewBoardGameForm = props => {
 						<option value="8">8</option>
 						<option value="9plus">9+</option>
 					</select>
-					<FormError error={errors.maxPlayers} />
 				</label>
 				<label>
 					Estimated Play Time (in minutes):
 					<input type="number" id="estimatedPlayTime" name="estimatedPlayTime" onChange={handleInputChange} value={newBoardGame.estimatedPlayTime} />
-					<FormError error={errors.estimatedPlayTime} />
 				</label>
 				<label>
 					Description:
 					<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
-					<FormError error={errors.description} />
 				</label>
 
 				<div className="button-group">
 					<input className="button" type="submit" value="Submit New Board Game" />
 				</div>
 			</form>
-		</div>
+		</>
 	)
 }
 
