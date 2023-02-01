@@ -1,5 +1,7 @@
 # Board Game Reviews
 
+## App Overview 
+...
 
 ### Authors
 - Jarrod Kohl
