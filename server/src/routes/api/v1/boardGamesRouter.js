@@ -13,4 +13,16 @@ boardGamesRouter.get("/", async (req, res) => {
     }
 })
 
+boardGamesRouter.get("/:id", async (req, res) =>{
+    const { id } = req.params
+    try {
+        const boardGame = await BoardGame.query().findById(id)
+        if (boardGame) {
+            return res.status(200).json({ boardGame })
+        }
+    } catch (error) {
+        return res.status(500).json({ errors: error })
+    }
+})
+
 export default boardGamesRouter
