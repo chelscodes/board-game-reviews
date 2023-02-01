@@ -8,7 +8,7 @@ const BoardGamesIndex = props => {
 
     const getBoardGames = async () => {
         try {
-            const response = await fetch("/api/v1/boardgames")
+            const response = await fetch("/api/v1/board-games")
             if (!response.ok) {
                 const errorMessage = `${response.status} (${response.statusText})`
                 const error = new Error(errorMessage)
