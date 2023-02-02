@@ -6,7 +6,6 @@ const BoardGameTile = props => {
     return(
         <div>
             <li><Link to={`/board-games/${id}`}>{name}</Link></li>
-            <p>Rating: {rating}/10</p>
         </div>
     )
 }

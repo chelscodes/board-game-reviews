@@ -31,7 +31,6 @@ const BoardGamesIndex = props => {
                 key={boardGame.id}
                 id={boardGame.id}
                 name={boardGame.name}
-                rating={boardGame.rating}
             />
         )
     })

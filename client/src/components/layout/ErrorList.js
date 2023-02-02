@@ -1,14 +1,11 @@
 import React from "react"
 
 const ErrorList = props => {
-  const errantFields = Object.keys(props.errors)
-  if (errantFields.length > 0) {
-    let index = 0
-    const listItems = errantFields.map(field => {
-      index++
+  if (props.errors.length > 0) {
+    const listItems = props.errors.map(error => {
       return (
-        <li key={index}>
-          {field} {props.errors[field]}
+        <li key={error}>
+          {error}
         </li>
       )
     })
