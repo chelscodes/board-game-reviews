@@ -14,7 +14,7 @@ const NewBoardGameForm = props => {
 		description: ""
 	})
 
-	const [errors, setErrors] = useState({})
+	const [errors, setErrors] = useState([])
 	const [shouldRedirect, setShouldRedirect] = useState(false)
 
 	let newBoardGameId = ""
@@ -42,7 +42,7 @@ const NewBoardGameForm = props => {
 			} else {
 				console.log("New board game added successfully!")
 				newBoardGameId = body.newBoardGame.id
-				setErrors({})
+				setErrors([])
 				setShouldRedirect(true)
 			}
 		} catch(err) {
