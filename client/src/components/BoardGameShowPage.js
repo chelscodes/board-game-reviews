@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 const BoardGameShowPage = (props) => {
 	const [boardGame, setBoardGame] = useState({
 		name: "",
@@ -9,6 +10,14 @@ const BoardGameShowPage = (props) => {
 		description: ""
 	})
 	const id = props.match.params.id 
+	const role = props.currentUser
+	console.log(role)
+	// now we can use the "role" to add a delete button that shows up if admin role is in current role
+	//add if statement for role so if(role===admin) then button shows up else NO
+	//add DELETE route (instead of 'post/get/etc) in the router
+	//maybe something cool that we arent even thinking about.
+	//check on "role" and passing it down
+
 
 	const getBoardGame = async () => {
 

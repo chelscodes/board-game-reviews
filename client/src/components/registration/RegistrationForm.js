@@ -8,6 +8,7 @@ const RegistrationForm = () => {
     email: "",
     password: "",
     passwordConfirmation: "",
+    role: ""
   });
 
   const [errors, setErrors] = useState({});

@@ -12,6 +12,7 @@ import BoardGamesIndex from "./BoardGamesIndex";
 import BoardGameShowPage from "./BoardGameShowPage";
 import NewBoardGameForm from "./NewBoardGameForm";
 
+
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const fetchCurrentUser = async () => {
@@ -34,7 +35,8 @@ const App = (props) => {
         <Route exact path="/" component={BoardGamesIndex} />
         <Route exact path="/board-games" component={BoardGamesIndex} />
         <Route exact path="/board-games/new" component={NewBoardGameForm} />  
-        <Route exact path="/board-games/:id" component={BoardGameShowPage} />
+        <Route exact path="/board-games/:id"
+        render={(props) => <BoardGameShowPage {...props} currentUser={currentUser}/>} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} /> 
       </Switch>
