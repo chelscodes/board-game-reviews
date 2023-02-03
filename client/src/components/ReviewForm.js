@@ -1,5 +1,4 @@
-import React, { useEfect } from "react"
-// import { Redirect } from "react-router-dom"
+import React, { useState } from "react"
 
 import ErrorList from "./layout/ErrorList"
 import translateServerErrors from "../services/translateServerErrors"
@@ -7,16 +6,16 @@ import translateServerErrors from "../services/translateServerErrors"
 const ReviewForm = (props) => {
   
   const [newReview, setNewReview] = useState({
-    rating: null,
-    comment: ''
+    rating: "",
+    comment: ""
   })
   const [errors, setErrors] = useState([])
 
   const addNewReview = async () => {
-    const id = props.match.params.id
+    const id = props.boardGameId
 
     try {
-      const response = await fetch(`/api/v1/board-games/${id}`, {
+      const response = await fetch(`/api/v1/board-games/${id}/reviews`, {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json"
@@ -68,22 +67,22 @@ const ReviewForm = (props) => {
       <ErrorList errors={errors} />
       <form onSubmit={handleSubmit} className="callout">
         <fieldset>
-          <legend>Please rate from 1-10</legend>
+          <legend>Rating:</legend>
             <div>
               <input type="radio" id="ratingChoice1" name="rating" value="1" onChange={handleInputChange} />
-              <label for="ratingChoice1">1</label>
+              <label htmlFor="ratingChoice1">1</label>
 
               <input type="radio" id="ratingChoice2" name="rating" value="2" onChange={handleInputChange} />
-              <label for="ratingChoice1">2</label>
+              <label htmlFor="ratingChoice1">2</label>
 
               <input type="radio" id="ratingChoice3" name="rating" value="3" onChange={handleInputChange} />
-              <label for="ratingChoice1">3</label>
+              <label htmlFor="ratingChoice1">3</label>
 
               <input type="radio" id="ratingChoice4" name="rating" value="4" onChange={handleInputChange} />
-              <label for="ratingChoice1">4</label>
+              <label htmlFor="ratingChoice1">4</label>
 
               <input type="radio" id="ratingChoice5" name="rating" value="5" onChange={handleInputChange} />
-              <label for="ratingChoice1">5</label>
+              <label htmlFor="ratingChoice1">5</label>
             </div>
         </fieldset>
         <label>
@@ -99,4 +98,4 @@ const ReviewForm = (props) => {
   
 }
 
-export default NewBoardGameReviewForm
+export default ReviewForm

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReviewForm from "./ReviewForm"
 
 const BoardGameShowPage = (props) => {
 	const [boardGame, setBoardGame] = useState({
@@ -39,7 +40,7 @@ const BoardGameShowPage = (props) => {
 	}
 
 	return(
-		<div>
+		<>
 			<h2>{boardGame.name}</h2>
 			<ul className="game-info">
 				<li>Players: {playerRange}</li>
@@ -49,7 +50,8 @@ const BoardGameShowPage = (props) => {
 				<p>Description:</p>
 				<p>{boardGame.description}</p>
 			</div>
-		</div>
+			<ReviewForm boardGameId={id} />
+		</>
 	)
 }
 

@@ -2,6 +2,7 @@ import express from "express";
 import { BoardGame } from "../../../models/index.js";
 import objection from "objection";
 const { ValidationError } = objection;
+import boardGameReviewsRouter from "./boardGameReviewsRouter.js";
 
 import cleanUserInput from "../../../services/cleanUserInput.js";
 
@@ -41,5 +42,7 @@ boardGamesRouter.get("/:id", async (req, res) =>{
 		return res.status(500).json({ errors: error })
 	}
 })
+
+boardGamesRouter.use("/:boardGameId/reviews", boardGameReviewsRouter)
 
 export default boardGamesRouter
