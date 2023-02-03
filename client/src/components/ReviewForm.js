@@ -34,9 +34,9 @@ const ReviewForm = (props) => {
         }  
       } else {
         const body = await response.json()
-        setShouldRedirect(true)
       }
     } catch (error) {
+      console.log(error)
       console.error(`Error in fetch: ${error.errorMessage}`)
     }
   }
@@ -56,8 +56,8 @@ const ReviewForm = (props) => {
 
   const clearForm = () => {
     setNewReview({
-      rating: null,
-      comment: ''
+      rating: "",
+      comment: ""
     })
   }
 
