@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReviewsList from "./ReviewsList";
 
 const BoardGameShowPage = (props) => {
 	const [boardGame, setBoardGame] = useState({
@@ -49,6 +50,7 @@ const BoardGameShowPage = (props) => {
 				<p>Description:</p>
 				<p>{boardGame.description}</p>
 			</div>
+			<ReviewsList boardGameId={id}/>
 		</>
 	)
 }

@@ -5,7 +5,7 @@ const ReviewTile = props => {
 
   return (
     <>
-    {/* format the tile with data */}
+      <h4>You rendered a review tile!</h4>
     </>
   )
 }
