@@ -10,6 +10,8 @@ const BoardGameShowPage = (props) => {
 	})
 	const id = props.match.params.id 
 
+	const role = props.currentUser
+
 	const getBoardGame = async () => {
 
 		try {
@@ -23,6 +25,38 @@ const BoardGameShowPage = (props) => {
 			setBoardGame(body.boardGame)
 		} catch (error) {
 			console.error(`Error in fetch: ${error.message}`)
+		}
+	}
+
+	const handleDelete = async () => {
+		try {
+			const response = await fetch(`/api/v1/board-games/${id}`, {
+				method: "DELETE",
+				headers: new Headers({
+					"Content-Type": "application/json"
+				})
+				// body: JSON.stringify(newBoardGame)
+			})
+			// const body = await response.json()
+
+			if (!response.ok) {
+				if (response.status === 422) {
+					const newErrors = translateServerErrors(body.errors)
+					return setErrors(newErrors)
+				} else {
+					const errorMessage = `${response.status} (${response.statusText})`
+					const error = new Error(errorMessage)
+					throw(error)
+				}
+			} else {
+				console.log("Board game deleted successfully!")
+				props.history.push("/board-games")
+				// newBoardGameId = body.newBoardGame.id
+				setErrors([])
+				// setShouldRedirect(true)
+			}
+		} catch(err) {
+			console.error(`Error in fetch: ${err.message}`)
 		}
 	}
 
@@ -48,6 +82,9 @@ const BoardGameShowPage = (props) => {
 			<div className="description">
 				<p>Description:</p>
 				<p>{boardGame.description}</p>
+			</div>
+			<div className="button-group">
+				<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
 			</div>
 		</div>
 	)
