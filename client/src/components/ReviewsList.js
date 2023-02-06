@@ -25,12 +25,20 @@ const ReviewsList = props => {
   }, [])
 
   // create ReviewTiles
+  const reviewTiles = reviews.map(review => {
+    return (
+      <ReviewTile
+        key={review.id}
+        {...review}
+      />
+    )
+  })
 
 
   return (
     <>
       <h3>You rendered the Reviews List!</h3>
-      <ReviewTile />
+      {reviewTiles}
     </>
   )
 }
