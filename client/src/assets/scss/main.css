@@ -8,3 +8,18 @@
   tab-size: 4;
 } */
 
+body {
+  background-color: #FAF9F6;
+}
+
+.game-info {
+  color: #219ebc
+}
+
+.description {
+  color: #ffb703;
+}
+
+.review-box {
+  border: 1px solid;
+}

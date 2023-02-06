@@ -37,8 +37,10 @@ const ReviewsList = props => {
 
   return (
     <>
-      <h3>You rendered the Reviews List!</h3>
-      {reviewTiles}
+      <h4 className="text-center">Reviews</h4>
+      <div className="row medium-8 large-7 columns">
+        {reviewTiles}
+      </div>
     </>
   )
 }

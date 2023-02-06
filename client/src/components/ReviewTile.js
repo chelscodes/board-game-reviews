@@ -8,12 +8,13 @@ const ReviewTile = props => {
 
 
   return (
-    <>
-      <p>Username: {userName}</p>
-      <p>Rating: {rating}</p>
-      <p>Comment:</p>
-      <p>{comment}</p>
-    </>
+    <div className="callout grid-x grid-padding-x">
+      <div className="cell small=12 medium-4 large-4 review-box">
+        <h5 className="text-center">{userName}</h5>
+        <p className="text-center">{rating}/5 stars</p>
+      </div>
+      <p className="cell small=12 medium-8 large-8 review-box">{comment}</p>
+    </div>
   )
 }
 
