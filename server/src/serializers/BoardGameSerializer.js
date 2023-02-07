@@ -1,4 +1,3 @@
-import { Review } from "../models/index.js"
 import ReviewSerializer from "./ReviewSerializer.js"
 
 class BoardGameSerializer {
@@ -12,8 +11,7 @@ class BoardGameSerializer {
       serializedBoardGame[attribute] = boardGame[attribute]
     }
 
-    const boardGameId = boardGame.id
-    const reviewsData = await Review.query().where({boardGameId})
+    const reviewsData = await boardGame.$relatedQuery("reviews")
     const reviews = await Promise.all(reviewsData.map( async (review) => {
       const serializedReview = ReviewSerializer.getSummary(review)
       return serializedReview
