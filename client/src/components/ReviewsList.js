@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile"
 
 const ReviewsList = props => {
-  // useState to hold the reviews
   const [reviews, setReviews] = useState([])
 
-  // fetch request for reviews data
   const getReviews = async () => {
     try {
       const response = await fetch(`/api/v1/board-games/${props.boardGameId}/reviews`)
@@ -24,7 +22,6 @@ const ReviewsList = props => {
     getReviews()
   }, [])
 
-  // create ReviewTiles
   const reviewTiles = reviews.map(review => {
     return (
       <ReviewTile
@@ -33,7 +30,6 @@ const ReviewsList = props => {
       />
     )
   })
-
 
   return (
     <>
