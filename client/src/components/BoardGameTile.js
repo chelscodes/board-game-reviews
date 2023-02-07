@@ -2,12 +2,12 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const BoardGameTile = props => {
-    const { id, name, rating } = props
-    return(
-        <div>
-            <li><Link to={`/board-games/${id}`}>{name}</Link></li>
-        </div>
-    )
+	const { id, name } = props
+	return(
+		<>
+			<li><Link to={`/board-games/${id}`}>{name}</Link></li>
+		</>
+	)
 }
 
 export default BoardGameTile

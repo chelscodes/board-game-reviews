@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReviewsList from "./ReviewsList";
 
 const BoardGameShowPage = (props) => {
 	const [boardGame, setBoardGame] = useState({
@@ -7,7 +8,8 @@ const BoardGameShowPage = (props) => {
 		maxPlayers: "",
 		estimatedPlayTime: "",
 		description: "",
-		userId: ""
+		userId: "",
+		reviews: []
 	})
 	const [showButton, setShowButton] = useState(false)
 	
@@ -79,22 +81,24 @@ const BoardGameShowPage = (props) => {
 	}
 
 	return(
-		<div>
-			<h2>{boardGame.name}</h2>
-			<ul className="game-info">
-				<li>Players: {playerRange}</li>
-				<li>Est Play Time: {boardGame.estimatedPlayTime} minutes</li>
-			</ul>
-			<div className="description">
-				<p>Description:</p>
-				<p>{boardGame.description}</p>
+		<>
+			<div className="game-info">
+				<div className="row column text-center">
+					<h2>{boardGame.name}</h2>
+					<div className="grid-x grid-padding-x">
+						<p className="cell auto text-right">Players: {playerRange}</p>
+						<p className="cell auto text-left">Time: {boardGame.estimatedPlayTime} minutes</p>
+					</div>
+					<p className="description">{boardGame.description}</p>
+				</div>
 			</div>
 			{showButton && (
 				<div className="button-group">
 					<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
 				</div>)}
-			</div>
-			)
+			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
+		</>
+	)
 }
 
 export default BoardGameShowPage
