@@ -2,9 +2,9 @@ import express from "express";
 import { BoardGame } from "../../../models/index.js";
 import objection from "objection";
 const { ValidationError } = objection;
-import boardGameReviewsRouter from "./boardGameReviewsRouter.js";
 
 import cleanUserInput from "../../../services/cleanUserInput.js";
+import BoardGameSerializer from "../../../serializers/BoardGameSerializer.js";
 
 const boardGamesRouter = new express.Router()
 
@@ -36,13 +36,12 @@ boardGamesRouter.get("/:id", async (req, res) =>{
 	try {
 		const boardGame = await BoardGame.query().findById(id)
 		if (boardGame) {
-			return res.status(200).json({ boardGame })
+			const serializedBoardGame = await BoardGameSerializer.getSummary(boardGame)
+			return res.status(200).json({ boardGame: serializedBoardGame })
 		}
 	} catch (error) {
 		return res.status(500).json({ errors: error })
 	}
 })
-
-boardGamesRouter.use("/:boardGameId/reviews", boardGameReviewsRouter)
 
 export default boardGamesRouter

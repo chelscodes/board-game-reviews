@@ -7,7 +7,8 @@ const BoardGameShowPage = (props) => {
 		minPlayers: "",
 		maxPlayers: "",
 		estimatedPlayTime: "",
-		description: ""
+		description: "",
+		reviews: []
 	})
 	const id = props.match.params.id 
 
@@ -51,7 +52,7 @@ const BoardGameShowPage = (props) => {
 					<p className="description">{boardGame.description}</p>
 				</div>
 			</div>
-			<ReviewsList boardGameId={id}/>
+			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
 		</>
 	)
 }
