@@ -6,14 +6,17 @@ const BoardGameShowPage = (props) => {
 		minPlayers: "",
 		maxPlayers: "",
 		estimatedPlayTime: "",
-		description: ""
+		description: "",
+		userId: ""
 	})
+	const [showButton, setShowButton] = useState(false)
+	
 	const id = props.match.params.id 
+	const role = props.currentUser?.role
+	const currentUserId = props.currentUser?.id
 
-	const role = props.currentUser
 
 	const getBoardGame = async () => {
-
 		try {
 			const response = await fetch(`/api/v1/board-games/${id}`)
 			if(!response.ok){
@@ -35,10 +38,7 @@ const BoardGameShowPage = (props) => {
 				headers: new Headers({
 					"Content-Type": "application/json"
 				})
-				// body: JSON.stringify(newBoardGame)
 			})
-			// const body = await response.json()
-
 			if (!response.ok) {
 				if (response.status === 422) {
 					const newErrors = translateServerErrors(body.errors)
@@ -51,11 +51,10 @@ const BoardGameShowPage = (props) => {
 			} else {
 				console.log("Board game deleted successfully!")
 				props.history.push("/board-games")
-				// newBoardGameId = body.newBoardGame.id
 				setErrors([])
-				// setShouldRedirect(true)
 			}
 		} catch(err) {
+			console.log(err)
 			console.error(`Error in fetch: ${err.message}`)
 		}
 	}
@@ -63,6 +62,13 @@ const BoardGameShowPage = (props) => {
 	useEffect(() => {
 		getBoardGame()
 	}, [])
+
+	useEffect(() => {
+		if (currentUserId === boardGame.userId || role === "admin") {
+			setShowButton(true)
+		}
+	})
+
 
 	let playerRange
 
@@ -83,11 +89,12 @@ const BoardGameShowPage = (props) => {
 				<p>Description:</p>
 				<p>{boardGame.description}</p>
 			</div>
-			<div className="button-group">
-				<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
+			{showButton && (
+				<div className="button-group">
+					<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
+				</div>)}
 			</div>
-		</div>
-	)
+			)
 }
 
 export default BoardGameShowPage

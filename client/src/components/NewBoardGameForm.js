@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import translateServerErrors from "../services/translateServerErrors"
 
@@ -16,6 +16,11 @@ const NewBoardGameForm = props => {
 
 	const [errors, setErrors] = useState([])
 	const [shouldRedirect, setShouldRedirect] = useState(false)
+
+	const [showButton, setShowButton] = useState(false)
+
+	
+	const role = props.currentUser?.role
 
 	let newBoardGameId = ""
 
@@ -61,6 +66,12 @@ const NewBoardGameForm = props => {
 		event.preventDefault()
 		addNewBoardGame()
 	}
+
+	useEffect(() => {
+		if (role === "user" || role === "admin") {
+			setShowButton(true)
+		}
+	})
 
 	if (shouldRedirect) {
 		return <Redirect push to={`/board-games/${newBoardGameId}`} />
@@ -113,10 +124,14 @@ const NewBoardGameForm = props => {
 					Description:
 					<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
 				</label>
-
-				<div className="button-group">
-					<input className="button" type="submit" value="Submit New Board Game" />
-				</div>
+				{showButton && (
+					<div className="button-group">
+						<input className="button" type="submit" value="Submit New Board Game" />
+					</div>
+				)}
+				{!showButton && (
+					<h2 className="sign-in-warning">Please sign up or sign in to add a new board game.</h2>
+				)}
 			</form>
 		</>
 	)

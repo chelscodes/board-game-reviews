@@ -18,7 +18,8 @@ boardGamesRouter.get("/", async (req, res) => {
 
 boardGamesRouter.post("/", async (req, res) => {
 	const formInput = cleanUserInput(req.body)
-
+	const userId = req.user.id
+	formInput.userId = userId
 	try {
 		const newBoardGame = await BoardGame.query().insertAndFetch(formInput)
 		return res.status(201).json({ newBoardGame })

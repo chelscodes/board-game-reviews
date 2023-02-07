@@ -24,6 +24,21 @@ class BoardGame extends unique(Model) {
       }
     }
   }
+
+  static get relationMappings() {
+    const {User} = require("./index")
+
+    return {
+      user: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: "boardGame.userId",
+          to: "users.id"
+        }
+      }
+    }
+  }
 }
 
 module.exports = BoardGame
