@@ -1,17 +1,43 @@
 import React from "react"
+import { useState } from "react"
 
 const ReviewTile = props => {
   const { rating, comment } = props
   const userName = props.user.userName
+  const [voteCount, setVoteCount] = useState(0)
+
+  const handleUpvote = () => {
+    setVoteCount(voteCount + 1)
+  }
+
+  const handleDownvote = () => {
+    setVoteCount(voteCount - 1)
+  }
 
   return (
-    <div className="callout grid-x grid-padding-x">
-      <div className="cell small=12 medium-4 large-4 review-box">
-        <h5 className="text-center">{userName}</h5>
-        <p className="text-center">{rating}/5 stars</p>
+    <div className="callout review-container">
+    <div className="grid-x">
+      <div className="cell small-12 medium-4 review-username-container">
+        <p className="review-username">{userName}</p>
       </div>
-      <p className="cell small=12 medium-8 large-8 review-box">{comment}</p>
+      <div className="cell small-12 medium-8">
+        <p className="review-comment">{comment}</p>
+      </div>
     </div>
+    <div className="grid-x align-right">
+      <div className="cell small-12 medium-4 review-rating-container">
+          <p className="review-rating">{rating}</p>
+      </div>
+      <div className="cell small-12 medium-8">
+        <div className="vote-btns">
+          <button className="upvote-btn">Upvote</button>
+          <button className="downvote-btn">Downvote</button>
+        </div>
+        <p className="vote-count">Vote count: {voteCount}</p>
+      </div>
+    </div>
+  </div>
+
   )
 }
 
