@@ -51,12 +51,10 @@ const BoardGameShowPage = (props) => {
 					throw(error)
 				}
 			} else {
-				console.log("Board game deleted successfully!")
 				props.history.push("/board-games")
 				setErrors([])
 			}
 		} catch(err) {
-			console.log(err)
 			console.error(`Error in fetch: ${err.message}`)
 		}
 	}
@@ -96,7 +94,7 @@ const BoardGameShowPage = (props) => {
 				<div className="button-group">
 					<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
 				</div>)}
-			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
+			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>	
 		</>
 	)
 }
