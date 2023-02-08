@@ -68,7 +68,7 @@ const BoardGameShowPage = (props) => {
 			setShowButton(true)
 		}
 	})
-
+	console.log(boardGame.userId)
 
 	let playerRange
 
@@ -77,6 +77,7 @@ const BoardGameShowPage = (props) => {
 	} else {
 		playerRange = `${boardGame.minPlayers} - ${boardGame.maxPlayers}`
 	}
+	console.log(showButton)
 
 	return(
 		<>
