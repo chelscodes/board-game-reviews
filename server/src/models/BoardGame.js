@@ -1,3 +1,4 @@
+
 const Model = require("./Model.js")
 
 const uniqueFactory = require("objection-unique")
@@ -27,13 +28,13 @@ class BoardGame extends unique(Model) {
 			}, 
 			
 			user: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: User,
-        join: {
-          from: "boardGame.userId",
-          to: "users.id"
-        }
-      }
+		relation: Model.BelongsToOneRelation,
+		modelClass: User,
+		join: {
+		  from: "boardGame.userId",
+		  to: "users.id"
+		}
+	  }
 		}
 	}
 

@@ -11,7 +11,6 @@ const BoardGameShowPage = (props) => {
 		userId: "",
 		reviews: []
 	})
-	const [showButton, setShowButton] = useState(false)
 	
 	const id = props.match.params.id 
 	const role = props.currentUser?.role
@@ -63,12 +62,12 @@ const BoardGameShowPage = (props) => {
 		getBoardGame()
 	}, [])
 
-	useEffect(() => {
+		let showButton
 		if (currentUserId === boardGame.userId || role === "admin") {
-			setShowButton(true)
+			showButton = <div className="button-group">
+			<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
+		</div>
 		}
-	})
-	console.log(boardGame.userId)
 
 	let playerRange
 
@@ -77,7 +76,6 @@ const BoardGameShowPage = (props) => {
 	} else {
 		playerRange = `${boardGame.minPlayers} - ${boardGame.maxPlayers}`
 	}
-	console.log(showButton)
 
 	return(
 		<>
@@ -91,10 +89,7 @@ const BoardGameShowPage = (props) => {
 					<p className="description">{boardGame.description}</p>
 				</div>
 			</div>
-			{showButton && (
-				<div className="button-group">
-					<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
-				</div>)}
+			{showButton}
 			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>	
 		</>
 	)

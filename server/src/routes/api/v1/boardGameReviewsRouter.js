@@ -12,7 +12,7 @@ boardGameReviewsRouter.post("/", async (req, res) => {
   const userId = req.user.id
   const boardGameId = req.params.boardGameId
 
-  try{
+  try {
     const newReview = await Review.query().insertAndFetch({ rating, comment, userId, boardGameId})
     return res.status(201).json({ newReview })
   } catch(error) {
