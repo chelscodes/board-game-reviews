@@ -50,7 +50,7 @@ boardGamesRouter.delete("/:id", async (req, res) =>{
 	try {
 		const rowsDeleted = await BoardGame.query().deleteById(id)
 		if (rowsDeleted === 1) {
-			return res.status(204).send()
+			return res.status(204).json("Game was deleted successfully!")
 		}
 		return res.status(404).json({ errors: "Board game not found" })
 	} catch (error) {

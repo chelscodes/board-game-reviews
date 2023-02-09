@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import ReviewsList from "./ReviewsList";
 
 const BoardGameShowPage = (props) => {
@@ -12,6 +13,8 @@ const BoardGameShowPage = (props) => {
 		reviews: []
 	})
 	
+	const [shouldRedirect, setShouldRedirect] = useState(false)
+
 	const id = props.match.params.id 
 	const role = props.currentUser?.role
 	const currentUserId = props.currentUser?.id
@@ -41,18 +44,11 @@ const BoardGameShowPage = (props) => {
 				})
 			})
 			if (!response.ok) {
-				if (response.status === 422) {
-					const newErrors = translateServerErrors(body.errors)
-					return setErrors(newErrors)
-				} else {
-					const errorMessage = `${response.status} (${response.statusText})`
-					const error = new Error(errorMessage)
-					throw(error)
-				}
-			} else {
-				props.history.push("/board-games")
-				setErrors([])
+				const errorMessage = `${response.status} (${response.statusText})`
+				const error = new Error(errorMessage)
+				throw(error)
 			}
+			setShouldRedirect(true)
 		} catch(err) {
 			console.error(`Error in fetch: ${err.message}`)
 		}
@@ -62,15 +58,18 @@ const BoardGameShowPage = (props) => {
 		getBoardGame()
 	}, [])
 
-		let showButton
-		if (currentUserId === boardGame.userId || role === "admin") {
-			showButton = <div className="button-group">
+	if (shouldRedirect) {
+		return <Redirect push to={"/board-games"} />
+	}
+
+	let showButton
+	if (currentUserId === boardGame.userId || role === "admin") {
+		showButton = <div className="button-group">
 			<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
 		</div>
-		}
+	}
 
 	let playerRange
-
 	if (boardGame.minPlayers === boardGame.maxPlayers) {
 		playerRange = `${boardGame.minPlayers}`
 	} else {

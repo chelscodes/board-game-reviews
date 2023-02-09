@@ -8,11 +8,11 @@
 exports.up = async (knex) => {
   return knex.schema.table("boardGames", (table) => {
     table.bigInteger("userId")
-    .unsigned()
-    .notNullable()
-    .index()
-    .references("users.id")
-  } )
+      .unsigned()
+      .notNullable()
+      .index()
+      .references("users.id")
+  })
 }
 
 /**

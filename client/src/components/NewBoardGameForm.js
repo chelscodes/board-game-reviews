@@ -68,7 +68,7 @@ const NewBoardGameForm = props => {
 		return <Redirect push to={`/board-games/${newBoardGameId}`} />
 	}
 
-	let showForm = <h3 className="sign-in-warning">Please sign up or sign in to add a new board game.</h3>
+	let showForm = <h4 className="sign-in-warning">Please sign up or sign in to add a new board game.</h4>
 	if (role === "user" || role === "admin"){
 		showForm = <form onSubmit={handleSubmit} className="callout">
 			<label>
