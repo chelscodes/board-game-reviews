@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import ReviewsList from "./ReviewsList";
+import ReviewForm from "./ReviewForm";
 
 const BoardGameShowPage = (props) => {
 	const [boardGame, setBoardGame] = useState({
@@ -76,6 +77,12 @@ const BoardGameShowPage = (props) => {
 		playerRange = `${boardGame.minPlayers} - ${boardGame.maxPlayers}`
 	}
 
+	let reviewForm = ""
+	console.log(props.currentUser)
+	if (props.currentUser !== null) {
+		reviewForm = <ReviewForm boardGameId={id} boardGame={boardGame} setBoardGame={setBoardGame}/>
+	}
+
 	return(
 		<>
 			<div className="game-info">
@@ -88,8 +95,8 @@ const BoardGameShowPage = (props) => {
 					<p className="description">{boardGame.description}</p>
 				</div>
 			</div>
-			{showButton}
-			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>	
+			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
+			{reviewForm}
 		</>
 	)
 }

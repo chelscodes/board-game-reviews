@@ -4,13 +4,13 @@ const Model = require("./Model.js")
 const uniqueFactory = require("objection-unique")
 
 const unique = uniqueFactory({
-  fields: ["name"]
+	fields: ["name"]
 })
 
 class BoardGame extends unique(Model) {
-  static get tableName() {
-	return "boardGames"
-  }
+	static get tableName() {
+		return "boardGames"
+	}
 
   static get relationMappings() {
 		const { Review, User } = require("./index")

@@ -17,8 +17,6 @@ const NewBoardGameForm = props => {
 	const [errors, setErrors] = useState([])
 	const [shouldRedirect, setShouldRedirect] = useState(false)
 
-	const role = props.currentUser?.role
-
 	let newBoardGameId = ""
 
 	const addNewBoardGame = async () => {
