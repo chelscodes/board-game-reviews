@@ -6,14 +6,22 @@ class UserSeeder {
       {
         email: "jarrod@tboard.com",
         cryptedPassword: "password",
-        userName: "jdog",
-        role: "user"
+        userName: "jdog"
       },
       {
         email: "zach@yahoo.com",
         cryptedPassword: "notpassword",
-        userName: "Zgod",
-        role: "user"
+        userName: "Zgod"
+      },
+      {
+        email: "chelsea@board.com",
+        cryptedPassword: "password",
+        userName: "ChelsTastic"
+      },
+      {
+        email: "xun@hacker.com",
+        cryptedPassword: "notpassword",
+        userName: "DOMinNaXUN"
       }
     ]
     
