@@ -30,8 +30,8 @@ const ReviewTile = props => {
       </div>
       <div className="cell small-12 medium-8">
         <div className="vote-btns">
-          <button className="upvote-btn">Upvote</button>
-          <button className="downvote-btn">Downvote</button>
+          <button className="upvote-btn" onClick={handleUpvote}>Upvote</button>
+          <button className="downvote-btn" onClick={handleDownvote}>Downvote</button>
         </div>
         <p className="vote-count">Vote count: {voteCount}</p>
       </div>

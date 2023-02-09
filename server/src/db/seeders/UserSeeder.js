@@ -12,7 +12,18 @@ class UserSeeder {
         email: "zach@yahoo.com",
         cryptedPassword: "notpassword",
         userName: "Zgod"
+      },
+      {
+        email: "chelsea@board.com",
+        cryptedPassword: "password",
+        userName: "ChelsTastic"
+      },
+      {
+        email: "xun@hacker.com",
+        cryptedPassword: "notpassword",
+        userName: "DOMinNaXUN"
       }
+      
     ]
     
     for(const singleUserData of userData){

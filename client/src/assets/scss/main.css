@@ -23,15 +23,20 @@ body {
 .review-box {
   border: 1px solid;
 }
-.review-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+
+.review-container {
+  max-width: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
-.review-content {
-  width: 100%;
+.review-username-container {
+  text-align: right;
+}
+
+.review-username {
+  font-weight: bold;
 }
 
 .review-comment {
@@ -39,91 +44,45 @@ body {
   margin-bottom: 1rem;
 }
 
+.review-rating-container {
+  text-align: right;
+  background-color: rgb(128, 145, 242);
+}
+
+.review-rating {
+  font-weight: bold;
+}
+
 .vote-btns {
   display: flex;
-  justify-content: space-between;
-  width: 10%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .upvote-btn,
 .downvote-btn {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: #8f8888;
-  font-size: 0.8rem;
-  cursor: pointer;
+padding: 0.5rem 1rem;
+border-radius: 4px;
+border: 1px solid #EB9595;
+background-color: #8f8888;
+font-size: 0.8rem;
+cursor: pointer;
+margin: 0 10px;
 }
 
-.review-footer {
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #999;
-  margin-top: 0.5rem;
+.upvote-btn {
+background-color: #90EE90;
 }
 
-.rating-circle {
-  background-color: yellow;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-}
-.star-container {
-  display: inline-block;
-  position: relative;
-}
-
-.star {
-  background-color: yellow;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  display: inline-block;
-  position: absolute;
-}
-
-.review-header {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-
-.review-username {
-  font-weight: bold;
-}
-
-.review-tile {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.vote-btns {
-  display: flex;
-  align-items: center;
+.downvote-btn {
+background-color: #FF6961;
 }
 
 .vote-count {
-  margin-left: 10px;
+  text-align: center;
+  margin-top: 10px;
   font-weight: bold;
-}
-
-.review-container {
-  max-width: 500px;
-}
-
-.review-username-container {
-  text-align: right;
-}
-
-.review-rating-container {
-  text-align: right;
-  background-color: rgb(128, 145, 242);
 }
 
 .review-rating {
@@ -138,4 +97,4 @@ body {
 .vote-count {
   text-align: center;
   margin-top: 10px;
-}
+} 
