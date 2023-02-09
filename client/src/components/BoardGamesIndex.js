@@ -30,16 +30,23 @@ const BoardGamesIndex = props => {
 				key={boardGame.id}
 				id={boardGame.id}
 				name={boardGame.name}
+				minPlayers={boardGame.minPlayers}
+				maxPlayers={boardGame.maxPlayers}
+				estimatedPlayTime={boardGame.estimatedPlayTime}
+				description={boardGame.description}
 			/>
 		)
 	})
 
 	return(
 		<>
-			<h1>Board Game Reviews</h1>
-			<ul className="boardGames">
-				{boardGameTiles}
-			</ul>
+		<div class="grid-container text-center">
+				<h1 class="text-center header border"> *** Totally Board Reviews *** </h1>
+				{/* <h3>Click on any board game for more information</h3> */}
+				<div class="grid-x grid-margin-x">
+					{boardGameTiles}
+				</div>
+		</div>
 		</>
 	)
 }

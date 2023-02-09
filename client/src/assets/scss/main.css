@@ -8,8 +8,18 @@
   tab-size: 4;
 } */
 
+/* html {
+  background: url(https://as1.ftcdn.net/v2/jpg/04/19/98/20/1000_F_419982028_4TJJFRA7SaxtJfnahejrmR6L0k9dyugt.jpg) no-repeat center center fixed; 
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  /* background-size: cover; */
+
+
+/* } */ 
+
 body {
-  background-color: #FAF9F6;
+  background-color: #f0ffff;
 }
 
 .game-info {
@@ -22,4 +32,39 @@ body {
 
 .review-box {
   border: 1px solid;
+}
+
+.header {
+  color: #f0ffff;
+  font-weight: bolder;
+  font-size: 90px;
+  font-family: "snell roundhand", cursive;
+  margin: 40px 10px 70px 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.padding {
+  margin: 10px;
+}
+
+.less-padding {
+  margin: 0px
+}
+
+.border {
+  background-color: #4682b4;
+  border: hidden;
+}
+
+.cursive {
+  font-weight: bolder;
+  font-family: cursive;
+  color: #000000;
 }
