@@ -68,62 +68,57 @@ const NewBoardGameForm = props => {
 		return <Redirect push to={`/board-games/${newBoardGameId}`} />
 	}
 
-	let showForm = <h4 className="sign-in-warning">Please sign up or sign in to add a new board game.</h4>
-	if (role === "user" || role === "admin"){
-		showForm = <form onSubmit={handleSubmit} className="callout">
-			<label>
-				Name:
-				<input type="text" id="name" name="name" onChange={handleInputChange} value={newBoardGame.name} />
-			</label>
-			<label>
-				Minimum Players:
-				<select name="minPlayers" id="minPlayers" onChange={handleInputChange} value={newBoardGame.minPlayers} >
-					<option value="">--Please choose an option--</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9plus">9+</option>
-				</select>
-			</label>
-			<label>
-				Maximum Players:
-				<select id="maxPlayers" name="maxPlayers" onChange={handleInputChange} value={newBoardGame.maxPlayers} >
-					<option value="">--Please choose an option--</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9plus">9+</option>
-				</select>
-			</label>
-			<label>
-				Estimated Play Time (in minutes):
-				<input type="number" id="estimatedPlayTime" name="estimatedPlayTime" onChange={handleInputChange} value={newBoardGame.estimatedPlayTime} />
-			</label>
-			<label>
-				Description:
-				<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
-			</label>
-			<div className="button-group">
-				<input className="button" type="submit" value="Submit New Board Game" />
-			</div>
-		</form>
-	}
-
 	return (
 		<>
 			<h1>Add a New Board Game</h1>
 			<ErrorList errors={errors} />
-			{showForm}
+			<form onSubmit={handleSubmit} className="callout">
+				<label>
+					Name:
+					<input type="text" id="name" name="name" onChange={handleInputChange} value={newBoardGame.name} />
+				</label>
+				<label>
+					Minimum Players:
+					<select name="minPlayers" id="minPlayers" onChange={handleInputChange} value={newBoardGame.minPlayers} >
+						<option value="">--Please choose an option--</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9plus">9+</option>
+					</select>
+				</label>
+				<label>
+					Maximum Players:
+					<select id="maxPlayers" name="maxPlayers" onChange={handleInputChange} value={newBoardGame.maxPlayers} >
+						<option value="">--Please choose an option--</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9plus">9+</option>
+					</select>
+				</label>
+				<label>
+					Estimated Play Time (in minutes):
+					<input type="number" id="estimatedPlayTime" name="estimatedPlayTime" onChange={handleInputChange} value={newBoardGame.estimatedPlayTime} />
+				</label>
+				<label>
+					Description:
+					<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
+				</label>
+				<div className="button-group">
+					<input className="button" type="submit" value="Submit New Board Game" />
+				</div>
+			</form>
 		</>
 	)
 }
