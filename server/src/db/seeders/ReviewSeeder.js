@@ -1,4 +1,4 @@
-import { BoardGame, Review, User } from "../../models/index.js"
+import { BoardGame, User, Review } from "../../models/index.js"
 
 class ReviewSeeder {
   static async seed() {
