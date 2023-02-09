@@ -15,9 +15,14 @@ const TopBar = ({ user }) => {
   ];
 
   const authenticatedListItems = [
-    <li key="sign-out">
-      <SignOutButton />
-    </li>,
+    <div className="top-bar-left">
+      <li key="add-new-game">
+        <Link to="/board-games/new">Add a New Game</Link>
+      </li>
+    </div>,
+     <li key="sign-out">
+        <SignOutButton />
+     </li>
   ];
 
   return (

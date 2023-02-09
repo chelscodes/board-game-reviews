@@ -17,6 +17,8 @@ const NewBoardGameForm = props => {
 	const [errors, setErrors] = useState([])
 	const [shouldRedirect, setShouldRedirect] = useState(false)
 
+	const role = props.currentUser?.role
+
 	let newBoardGameId = ""
 
 	const addNewBoardGame = async () => {
@@ -113,7 +115,6 @@ const NewBoardGameForm = props => {
 					Description:
 					<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
 				</label>
-
 				<div className="button-group">
 					<input className="button" type="submit" value="Submit New Board Game" />
 				</div>

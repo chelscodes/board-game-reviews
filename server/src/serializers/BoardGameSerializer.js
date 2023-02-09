@@ -3,7 +3,7 @@ import ReviewSerializer from "./ReviewSerializer.js"
 class BoardGameSerializer {
   static async getSummary(boardGame) {
 
-    const allowedAttributes = ["id", "name", "minPlayers", "maxPlayers", "estimatedPlayTime", "description"]
+    const allowedAttributes = ["id", "name", "minPlayers", "maxPlayers", "estimatedPlayTime", "description", "userId"]
 
     let serializedBoardGame = {}
 

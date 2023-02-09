@@ -6,12 +6,14 @@ class UserSeeder {
       {
         email: "jarrod@tboard.com",
         cryptedPassword: "password",
-        userName: "jdog"
+        userName: "jdog",
+        role: "user"
       },
       {
         email: "zach@yahoo.com",
         cryptedPassword: "notpassword",
-        userName: "Zgod"
+        userName: "Zgod",
+        role: "user"
       }
     ]
     
