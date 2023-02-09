@@ -5,6 +5,7 @@ import { hot } from "react-hot-loader/root";
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.css";
 
+import AuthenticatedRoute from "./authentication/AuthenticatedRoute"
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
@@ -33,8 +34,11 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={BoardGamesIndex} />
         <Route exact path="/board-games" component={BoardGamesIndex} />
-        <Route exact path="/board-games/new"
-          render={(props) => <NewBoardGameForm {...props} currentUser={currentUser}/>} 
+        <AuthenticatedRoute 
+          exact={true}
+          path="/board-games/new"
+          component={NewBoardGameForm}
+          user={currentUser}
         />
         <Route exact path="/board-games/:id"
           render={(props) => <BoardGameShowPage {...props} currentUser={currentUser}/>} 
