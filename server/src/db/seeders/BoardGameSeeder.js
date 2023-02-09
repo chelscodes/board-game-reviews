@@ -1,4 +1,4 @@
-import { BoardGame } from "../../models/index.js";
+import { BoardGame, User } from "../../models/index.js";
 
 
 

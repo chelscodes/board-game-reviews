@@ -39,13 +39,13 @@ class ReviewSeeder {
       {
         rating: 4,
         comment: "Chess is the king of strategy games. It's like a game of mental gymnastics, where every move requires careful consideration and calculated risk. The pieces are beautifully designed, each with their own unique abilities, and the game is always challenging, no matter how many times you play. Whether you're playing against a friend or an AI opponent, Chess is a game that will keep you on your toes and thinking ahead. So, gather your wits and prepare for a battle of wits and strategy - the game of Chess awaits!",
-        userId: user2.id,
+        userId: user3.id,
         boardGameId: chessGame.id
       },
       {
         rating: 2,
         comment: "Chess may be the king of strategy games, but that doesn't mean it's a fun one. It's like trying to solve a Rubik's Cube with only one hand. It's frustrating, tedious, and about as exciting as watching grass grow. The pieces may have unique abilities, but they all seem to be limited in their movements. And let's not even get started on the endless mental gymnastics required to make a single move. Chess may be a classic, but it's also a snooze-fest. Unless you're a masochist who loves a challenge, I'd recommend finding another board game to play.",
-        userId: user1.id,
+        userId: user4.id,
         boardGameId: chessGame.id
       }
     ]
