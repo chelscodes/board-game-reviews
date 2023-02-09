@@ -41,6 +41,12 @@ const BoardGameShowPage = (props) => {
 		playerRange = `${boardGame.minPlayers} - ${boardGame.maxPlayers}`
 	}
 
+	let reviewForm = ""
+	console.log(props.user)
+	if (props.user !== null) {
+		reviewForm = <ReviewForm boardGameId={id} boardGame={boardGame} setBoardGame={setBoardGame}/>
+	}
+
 	return(
 		<>
 			<div className="game-info">
@@ -54,7 +60,7 @@ const BoardGameShowPage = (props) => {
 				</div>
 			</div>
 			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
-			<ReviewForm boardGameId={id} boardGame={boardGame} setBoardGame={setBoardGame}/>
+			{reviewForm}
 		</>
 	)
 }

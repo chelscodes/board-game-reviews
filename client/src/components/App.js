@@ -34,7 +34,10 @@ const App = (props) => {
         <Route exact path="/" component={BoardGamesIndex} />
         <Route exact path="/board-games" component={BoardGamesIndex} />
         <Route exact path="/board-games/new" component={NewBoardGameForm} />  
-        <Route exact path="/board-games/:id" component={BoardGameShowPage} />
+        <Route
+          exact path="/board-games/:id"
+          render={(props) => <BoardGameShowPage {...props} user={currentUser} />}
+        />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} /> 
       </Switch>
