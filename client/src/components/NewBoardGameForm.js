@@ -113,7 +113,6 @@ const NewBoardGameForm = props => {
 					Description:
 					<textarea id="description" name="description" onChange={handleInputChange} value={newBoardGame.description} />
 				</label>
-
 				<div className="button-group">
 					<input className="button" type="submit" value="Submit New Board Game" />
 				</div>

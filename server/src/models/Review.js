@@ -22,7 +22,7 @@ class Review extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: BoardGame,
         join: {
-          from: "reviews.userId",
+          from: "reviews.boardGameId",
           to: "boardGames.id"
         }
       }

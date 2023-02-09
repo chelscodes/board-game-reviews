@@ -16,9 +16,16 @@ class User extends uniqueFunc(Model) {
   }
 
   static get relationMappings() {
-    const { Review } = require("./index")
-
+    const {BoardGame, Review } = require("./index")
     return {
+      boardGames: {
+        relation: Model.HasManyRelation,
+        modelClass: BoardGame,
+        join: {
+          from: "users.id",
+          to: "boardGame.userId"
+        }
+      },
       reviews: {
         relation: Model.HasManyRelation,
         modelClass: Review,
@@ -47,6 +54,7 @@ class User extends uniqueFunc(Model) {
         userName: { type: "string" },
         email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$" },
         cryptedPassword: { type: "string" },
+        role: { type: "string" }
       },
     };
   }

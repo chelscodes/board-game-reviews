@@ -1,3 +1,4 @@
+
 const Model = require("./Model.js")
 
 const uniqueFactory = require("objection-unique")
@@ -11,8 +12,8 @@ class BoardGame extends unique(Model) {
 		return "boardGames"
 	}
 
-	static get relationMappings() {
-		const { Review } = require("./index")
+  static get relationMappings() {
+		const { Review, User } = require("./index")
 
 		return {
 			reviews: {
@@ -22,11 +23,20 @@ class BoardGame extends unique(Model) {
 					from: "boardGames.id",
 					to: "reviews.boardGameId"
 				}
+			}, 
+			
+			user: {
+				relation: Model.BelongsToOneRelation,
+				modelClass: User,
+				join: {
+					from: "boardGame.userId",
+					to: "users.id"
+				}
 			}
 		}
 	}
 
-	static get jsonSchema() {
+  static get jsonSchema() {
 		return {
 			type: "object",
 			required: ["name", "minPlayers", "maxPlayers", "estimatedPlayTime", "description"],
@@ -38,7 +48,7 @@ class BoardGame extends unique(Model) {
 				description: { type: "string" }
 			}
 		}
-	}
+  }
 }
 
 module.exports = BoardGame
