@@ -19,7 +19,8 @@ boardGamesRouter.get("/", async (req, res) => {
 
 boardGamesRouter.post("/", async (req, res) => {
 	const formInput = cleanUserInput(req.body)
-
+	const userId = req.user.id
+	formInput.userId = userId
 	try {
 		const newBoardGame = await BoardGame.query().insertAndFetch(formInput)
 		return res.status(201).json({ newBoardGame })
@@ -39,6 +40,19 @@ boardGamesRouter.get("/:id", async (req, res) =>{
 			const serializedBoardGame = await BoardGameSerializer.getSummary(boardGame)
 			return res.status(200).json({ boardGame: serializedBoardGame })
 		}
+	} catch (error) {
+		return res.status(500).json({ errors: error })
+	}
+})
+
+boardGamesRouter.delete("/:id", async (req, res) =>{
+	const { id } = req.params
+	try {
+		const rowsDeleted = await BoardGame.query().deleteById(id)
+		if (rowsDeleted === 1) {
+			return res.status(204).json("Game was deleted successfully!")
+		}
+		return res.status(404).json({ errors: "Board game not found" })
 	} catch (error) {
 		return res.status(500).json({ errors: error })
 	}

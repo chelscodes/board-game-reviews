@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import ReviewsList from "./ReviewsList";
 
 const BoardGameShowPage = (props) => {
@@ -8,12 +9,18 @@ const BoardGameShowPage = (props) => {
 		maxPlayers: "",
 		estimatedPlayTime: "",
 		description: "",
+		userId: "",
 		reviews: []
 	})
+	
+	const [shouldRedirect, setShouldRedirect] = useState(false)
+
 	const id = props.match.params.id 
+	const role = props.currentUser?.role
+	const currentUserId = props.currentUser?.id
+
 
 	const getBoardGame = async () => {
-
 		try {
 			const response = await fetch(`/api/v1/board-games/${id}`)
 			if(!response.ok){
@@ -28,12 +35,41 @@ const BoardGameShowPage = (props) => {
 		}
 	}
 
+	const handleDelete = async () => {
+		try {
+			const response = await fetch(`/api/v1/board-games/${id}`, {
+				method: "DELETE",
+				headers: new Headers({
+					"Content-Type": "application/json"
+				})
+			})
+			if (!response.ok) {
+				const errorMessage = `${response.status} (${response.statusText})`
+				const error = new Error(errorMessage)
+				throw(error)
+			}
+			setShouldRedirect(true)
+		} catch(err) {
+			console.error(`Error in fetch: ${err.message}`)
+		}
+	}
+
 	useEffect(() => {
 		getBoardGame()
 	}, [])
 
-	let playerRange
+	if (shouldRedirect) {
+		return <Redirect push to={"/board-games"} />
+	}
 
+	let showButton
+	if (currentUserId === boardGame.userId || role === "admin") {
+		showButton = <div className="button-group">
+			<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
+		</div>
+	}
+
+	let playerRange
 	if (boardGame.minPlayers === boardGame.maxPlayers) {
 		playerRange = `${boardGame.minPlayers}`
 	} else {
@@ -52,7 +88,8 @@ const BoardGameShowPage = (props) => {
 					<p className="description">{boardGame.description}</p>
 				</div>
 			</div>
-			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>
+			{showButton}
+			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>	
 		</>
 	)
 }
