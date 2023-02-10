@@ -11,10 +11,10 @@ const BoardGameTile = props => {
 		players = `${minPlayers} - ${maxPlayers}`
 	}
 	return(
-		<div class="callout secondary cell small-4 text-center">
-			<h2 class="padding cursive"><Link class="cursive" to={`/board-games/${id}`}>{name}</Link></h2>
-			<p class="bold italics less-padding">Estimated Play Time: {estimatedPlayTime} minutes</p>
-			<p class="bold italics less-padding">Players: {players}</p>
+		<div className="callout cell large-4 medium-6 small-12 text-center game-tile">
+			<h3 className="game-tile_header"><Link to={`/board-games/${id}`}>{name}</Link></h3>
+			<p className="game-tile_body">Estimated Play Time: {estimatedPlayTime} minutes</p>
+			<p className="game-tile_body">Players: {players}</p>
 		</div>
 	)
 }

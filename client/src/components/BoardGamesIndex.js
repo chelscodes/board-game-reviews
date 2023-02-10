@@ -39,15 +39,15 @@ const BoardGamesIndex = props => {
 	})
 
 	return(
-		<>
 		<div class="grid-container text-center">
-				<h1 class="text-center header border chrome">Totally Board</h1>
-				{/* <h3>Click on any board game for more information</h3> */}
-				<div class="grid-x grid-margin-x">
+				<h1 className="text-center header">Totally Board</h1>
+				<hr />
+				<p className="subtitle">Take a Trip Down Memory Lane with Our Retro Board Game Review Site - Your Guide to Timeless Gaming Fun! Explore the classic games of yesteryear and rediscover the joys of simple, yet thrilling, gameplay. So, put down the controller and pick up the dice - your next great adventure awaits!"</p>
+				<hr />
+				<div className="grid-x grid-margin-x">
 					{boardGameTiles}
 				</div>
 		</div>
-		</>
 	)
 }
 
