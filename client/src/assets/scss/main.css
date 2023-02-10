@@ -124,6 +124,11 @@ body {
   font-size: .8em;
 }
 
+.stars {
+  font-size: x-large;
+  color: #1c3ec9
+}
+
 input[type="radio"] {
   margin-left:5px;
   margin-right:20px;
