@@ -5,6 +5,9 @@ class ReviewSeeder {
     const monopolyGame = await BoardGame.query().findOne({ name: "Monopoly" })
     const sorryGame = await BoardGame.query().findOne({ name: "Sorry" })
     const chessGame = await BoardGame.query().findOne({ name: "Chess" })
+    const strategoGame = await BoardGame.query().findOne({ name: "Stratego" })
+    const riskGame = await BoardGame.query().findOne({ name: "Risk" })
+    const settlersOfCatanGame = await BoardGame.query().findOne({ name: "Settlers of Catan" })
     const clueGame = await BoardGame.query().findOne({ name: "Clue" })
     const candyLandGame = await BoardGame.query().findOne({ name: "Candy Land" })
     const connect4Game = await BoardGame.query().findOne({ name: "Connect 4" })
@@ -79,9 +82,44 @@ class ReviewSeeder {
         rating: 1,
         comment: "Let me tell ya, if you're looking for a game that will make you wanna tear your hair out and throw it across the room, look no further than Connect 4. This strategy game is about as challenging as counting to 4. The only thing more predictable than the outcome of a game of Connect 4 is the weather in San Diego. But hey, if you're looking for a game to play with your grandma or your 5-year-old cousin, this is the one for you.",
         userId: user4.id,
-        boardGameId: connect4Game.id
+        boardGameId: strategoGame.id
+      },
+      {
+        rating: 1,
+        comment: "Stratego is like a game of chess, but with bombs and spies. It's a battle of wits and luck as you try to capture your opponent's flag. Just be careful, because that marshal you thought was a weakling might actually be a bomb ready to blow you up. With its unique gameplay and endless replayability, Stratego is a must-have for any board game collection. And if you're lucky, you might even make it out alive.",
+        userId: user2.id,
+        boardGameId: strategoGame.id
+      },
+      {
+        rating: 5,
+        comment: "I had the chance to play Stratego with some friends recently and it was a blast! The game is all about strategy and trying to capture your opponent's flag, but be prepared for some tough decisions and a healthy dose of luck. The unique gameplay and endless replayability make Stratego a must-have for any board game collection. I would definitely recommend it to anyone looking for a fun and challenging game night with friends.",
+        userId: user3.id,
+        boardGameId: strategoGame.id
+      },
+      {
+        rating: 4,
+        comment: "If you're looking for a game that will make you feel like a global conqueror, Risk is the game for you. Just be prepared to lose some friends along the way. Risk is a classic board game that tests your strategy skills and patience as you try to dominate the world. The rule is simple, conquer territories and crush your opponents. Just don't get too attached to Australia, because it will be gone in a matter of minutes.",
+        userId: user3.id,
+        boardGameId: riskGame.id
+      },
+      {
+        rating: 4,
+        comment: "I recently played Risk with some friends and let me tell you, it was intense! The game is all about strategy and trying to conquer the world, but be prepared to face some tough competition and watch your alliances crumble. The classic gameplay and endless replayability make Risk a must-have for any board game collection. I would definitely recommend it to anyone looking for a fun and challenging game night with friends.",
+        userId: user4.id,
+        boardGameId: riskGame.id
+      },
+      {
+        rating: 4,
+        comment: "Settlers of Catan is the game where you can live out your colonial fantasies. Build roads, cities, and trade resources with your friends as you try to become the dominant power on the island of Catan. Just be warned, your friends will turn on you faster than you can say sheep for wheat. With its engaging gameplay and endless replayability, Settlers of Catan is a classic that will have you trading, building, and scheming for hours on end. So grab some friends, roll the dice, and get ready to settle the island of Catan.",
+        userId: user1.id,
+        boardGameId: settlersOfCatanGame.id
+      },
+      {
+        rating: 2,
+        comment: "We recently played Settlers of Catan with some friends and to be honest, it was a bit of a disappointment. The game is all about trading resources, building roads, and trying to become the dominant power on the island of Catan, but it felt repetitive and lacked excitement. The graphics were also underwhelming, which didn't help the overall experience. While it has some potential for a fun game night, there are much better options out there for strategy and building games.",
+        userId: user4.id,
+        boardGameId: settlersOfCatanGame.id
       }
-      
     ]
 
     for (const singleReviewData of reviewsData) {
