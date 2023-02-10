@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const BoardGameTile = props => {
-	const { id, name, minPlayers, maxPlayers, estimatedPlayTime, description } = props
+	const { id, name, minPlayers, maxPlayers, estimatedPlayTime } = props
 
 	let players = ''
 	if (minPlayers === maxPlayers) {

@@ -13,7 +13,7 @@ const ReviewsList = props => {
 
   return (
     <>
-      <h4 className="text-center">Reviews</h4>
+      <h3 className="text-center reviews_header">Reviews</h3>
       <div className="row medium-8 large-7 columns">
         {reviewTiles}
       </div>

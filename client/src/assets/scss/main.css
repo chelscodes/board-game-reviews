@@ -17,6 +17,18 @@ body {
   font-size: 5em;
 }
 
+.subtitle {
+  color: rgb(84, 84, 84);
+  text-align: justify;
+  padding: 0em 10em 0em 10em;
+}
+
+.subtitle_smaller {
+  color: rgb(84, 84, 84);
+  text-align: justify;
+  padding: 0em 15em 0em 15em;
+}
+
 .game-tile {
   box-shadow: 8px 7px 1px 1px #c6f364;
   border-width: 1px;
@@ -27,7 +39,6 @@ body {
 .game-tile_header {
   font-weight: bold;
   font-family: monospace;
-  color: #e9aeae
 }
 
 .game-tile_body {
@@ -36,34 +47,54 @@ body {
   font-size: .9em;
 }
 
-.subtitle {
-  color: rgb(84, 84, 84);
-  text-align: justify;
-  padding: 0em 10em 0em 10em;
-}
-
 .button {
   background-color: #1c3ec9;
+  border-radius: 10px;
 }
 
-.game-info {
-  color: #219ebc
-}
-
-.description {
-  color: #ffb703;
-}
-
-.review-box {
-  border: 1px solid;
-}
-
-.bold {
+.reviews_header {
   font-weight: bold;
+  font-family: monospace;
+  color: #1c3ec9
 }
 
-.italics {
-  font-style: italic;
+.review_username {
+  color: #9b86dc;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+.reviews_tile {
+  align-content: center;
+  width: 70%;
+  margin: 0em auto 2em;
+  box-shadow: 8px 7px 1px 1px #c6f364;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.review_comment {
+  color: rgb(84, 84, 84);
+  font-size: .8em;
+}
+
+.form-section {
+  align-content: center;
+  width: 55%;
+  margin: 2em auto 2em;
+}
+
+.form-section_box {
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.form_header {
+  font-family: monospace;
+  color: #1c3ec9
 }
 
 input[type="radio"] {
