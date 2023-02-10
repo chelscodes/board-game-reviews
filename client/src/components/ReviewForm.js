@@ -68,7 +68,7 @@ const ReviewForm = (props) => {
   }
 
   return (
-    <div className="form-section">
+    <div className="form-section_review">
       <hr />
       <h4 className="text-center form_header">Add a Review</h4>
       <ErrorList errors={errors} />
