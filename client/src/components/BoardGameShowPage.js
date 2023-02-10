@@ -65,9 +65,9 @@ const BoardGameShowPage = (props) => {
 
 	let showButton
 	if (currentUserId === boardGame.userId || role === "admin") {
-		showButton = <div className="button-group">
-			<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
-		</div>
+		showButton = <>
+			<input className="button button-delete" type="submit" value="Delete Game" onClick={handleDelete} />
+		</>
 	}
 
 	let playerRange
@@ -91,6 +91,7 @@ const BoardGameShowPage = (props) => {
 						<p className="cell auto text-right">Players: {playerRange}</p>
 						<p className="cell auto text-left">Time: {boardGame.estimatedPlayTime} minutes</p>
 					</div>
+					{showButton}
 					<hr />
 					<p className="subtitle subtitle_smaller">{boardGame.description}</p>
 					<hr />

@@ -13,15 +13,14 @@ const ReviewTile = props => {
   //   }
   // }
 
-  console.log(rating)
   return (
     <div className="callout grid-x grid-padding-x reviews_tile">
-      <div className="cell small=12 medium-2 large-2 review_user-rating">
+      <div className="cell small=12 medium-4 large-3 review_user-rating">
         <h5 className="text-center review_username">{userName}</h5>
         <p className="text-center">{rating}/5 stars</p>
         {/* <div><i className="fa-sharp fa-solid fa-star"></i></div> */}
       </div>
-      <p className="cell small=12 medium-10 large-10 review_comment">{comment}</p>
+      <p className="cell small=12 medium-8 large-9 review_comment">{comment}</p>
     </div>
   )
 }
