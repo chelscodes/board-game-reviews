@@ -41,7 +41,7 @@ const BoardGamesIndex = props => {
 	return(
 		<>
 		<div class="grid-container text-center">
-				<h1 class="text-center header border"> *** Totally Board Reviews *** </h1>
+				<h1 class="text-center header border chrome">Totally Board</h1>
 				{/* <h3>Click on any board game for more information</h3> */}
 				<div class="grid-x grid-margin-x">
 					{boardGameTiles}
