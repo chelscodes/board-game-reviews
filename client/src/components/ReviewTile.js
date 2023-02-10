@@ -3,7 +3,6 @@ import React from "react"
 const ReviewTile = props => {
   const { rating, comment } = props
   const userName = props.user.userName
-
   return (
     <div className="callout grid-x grid-padding-x">
       <div className="cell small=12 medium-4 large-4 review-box">

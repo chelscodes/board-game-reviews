@@ -126,3 +126,7 @@ body {
   font-family: "snell roundhand", cursive;
   margin: 40px 10px 70px 10px;
 } */
+input[type="radio"] {
+  margin-left:5px;
+  margin-right:20px;
+}
