@@ -55,6 +55,30 @@ class BoardGameSeeder {
         userId: user4.id,
         estimatedPlayTime: 90,
         description: "Settlers of Catan is a popular strategy board game where players build and manage their own settlements on the island of Catan. Players collect resources, trade with one another, and build roads, settlements, and cities in an effort to gain dominance over the island. With a strong emphasis on resource management and negotiation, Settlers of Catan is a game that requires careful planning and strategic thinking."
+      },
+      {
+        name: "Clue",
+        minPlayers: 3,
+        maxPlayers: 6,
+        userId: user3.id,
+        estimatedPlayTime: 80,
+        description: "One murder… 6 suspects. In this suspenseful Clue game, players have to find out who's responsible for murdering Mr. Boddy of Tudor Mansion in his own home. Get the scoop on the mansion's rooms, weapons and guests and start detecting! Was it Plum with the wrench in the library? Or Green with the candlestick in the study? Eliminate information throughout the game in this classic whodunit. The player who correctly accuses Who, What, and Where wins!"
+      },
+      {
+        name: "Candy Land",
+        minPlayers: 2,
+        maxPlayers: 4,
+        userId: user1.id,
+        estimatedPlayTime: 30,
+        description: "The game, which invites players to explore a peppermint stick forest, a peanut brittle house, a molasses swamp, and a gumdrop mountain, was designed to foster imagination and individual play, rather than encourage competition. In 1948, retired schoolteacher Eleanor Abbott invented Candy Land in a San Diego hospital."
+      },
+      {
+        name: "Connect 4",
+        minPlayers: 2,
+        maxPlayers: 2,
+        userId: user2.id,
+        estimatedPlayTime: 10,
+        description: "Connect-Four is a tic-tac-toe-like two-player game in which players alternately place pieces on a vertical board 7 columns across and 6 rows high."
       }
     ]
     for (const singleBoardGameData of boardGamesData) {
