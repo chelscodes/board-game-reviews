@@ -65,9 +65,9 @@ const BoardGameShowPage = (props) => {
 
 	let showButton
 	if (currentUserId === boardGame.userId || role === "admin") {
-		showButton = <div className="button-group">
-			<input className="button" type="submit" value="Delete Current Game" onClick={handleDelete} />
-		</div>
+		showButton = <>
+			<input className="button button-delete" type="submit" value="Delete Game" onClick={handleDelete} />
+		</>
 	}
 
 	let playerRange
@@ -78,21 +78,23 @@ const BoardGameShowPage = (props) => {
 	}
 
 	let reviewForm = ""
-	console.log(props.currentUser)
 	if (props.currentUser !== null) {
 		reviewForm = <ReviewForm boardGameId={id} boardGame={boardGame} setBoardGame={setBoardGame}/>
 	}
 
 	return(
 		<>
-			<div className="game-info">
+			<div className="">
 				<div className="row column text-center">
-					<h2>{boardGame.name}</h2>
+					<h2 className="header">{boardGame.name}</h2>
 					<div className="grid-x grid-padding-x">
 						<p className="cell auto text-right">Players: {playerRange}</p>
 						<p className="cell auto text-left">Time: {boardGame.estimatedPlayTime} minutes</p>
 					</div>
-					<p className="description">{boardGame.description}</p>
+					{showButton}
+					<hr />
+					<p className="subtitle subtitle_smaller">{boardGame.description}</p>
+					<hr />
 				</div>
 			</div>
 			<ReviewsList boardGameId={id} reviews={boardGame.reviews}/>

@@ -30,17 +30,23 @@ const BoardGamesIndex = props => {
 				key={boardGame.id}
 				id={boardGame.id}
 				name={boardGame.name}
+				minPlayers={boardGame.minPlayers}
+				maxPlayers={boardGame.maxPlayers}
+				estimatedPlayTime={boardGame.estimatedPlayTime}
 			/>
 		)
 	})
 
 	return(
-		<>
-			<h1>Board Game Reviews</h1>
-			<ul className="boardGames">
-				{boardGameTiles}
-			</ul>
-		</>
+		<div className="grid-container text-center">
+				<h1 className="text-center header">Totally Board</h1>
+				<hr />
+				<p className="subtitle">Take a Trip Down Memory Lane with Our Retro Board Game Review Site - Your Guide to Timeless Gaming Fun! Explore the classic games of yesteryear and rediscover the joys of simple, yet thrilling, gameplay. So, put down the controller and pick up the dice - your next great adventure awaits!"</p>
+				<hr />
+				<div className="grid-x grid-margin-x">
+					{boardGameTiles}
+				</div>
+		</div>
 	)
 }
 

@@ -68,9 +68,9 @@ const NewBoardGameForm = props => {
 
 	return (
 		<>
-			<h1>Add a New Board Game</h1>
+			<h1 className="header_smaller text-center">Add a New Board Game</h1>
 			<ErrorList errors={errors} />
-			<form onSubmit={handleSubmit} className="callout">
+			<form onSubmit={handleSubmit} className="callout form-section_wider form-section_box">
 				<label>
 					Name:
 					<input type="text" id="name" name="name" onChange={handleInputChange} value={newBoardGame.name} />

@@ -68,10 +68,11 @@ const ReviewForm = (props) => {
   }
 
   return (
-    <>
-      <h4 className="text-center">Add a Review</h4>
+    <div className="form-section_review">
+      <hr />
+      <h4 className="text-center form_header">Add a Review</h4>
       <ErrorList errors={errors} />
-      <form onSubmit={handleSubmit} className="callout">
+      <form onSubmit={handleSubmit} className="callout form-section_box">
         <fieldset>
           <legend>Rating</legend>
           <div className="button-group">
@@ -138,7 +139,7 @@ const ReviewForm = (props) => {
 					<input className="button" type="submit" value="Submit New Review" />
 				</div>
       </form>
-    </>
+    </div>
   )
 }
 
